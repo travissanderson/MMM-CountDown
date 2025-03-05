@@ -3,6 +3,7 @@ Module.register("MMM-CountDown",{
 	defaults: {
 		event: "New Millenium:",
 		date: "3000-01-01",
+		showDays: true,
 		showHours: true,
 		showMinutes: true,
 		showSeconds: true,
@@ -29,7 +30,7 @@ Module.register("MMM-CountDown",{
 		var textWrapper = document.createElement("div");
 
 		textWrapper.className = "align-left week dimmed medium";
-		timeWrapper.className = "time bright xlarge light";
+		timeWrapper.className = "time bright large light";
 		textWrapper.innerHTML=this.config.event;
 
 		var today = new Date(Date.now());
@@ -46,8 +47,9 @@ Module.register("MMM-CountDown",{
 		var hrs = '';
 		var mins = '';
 		var secs = '';
-		var days = diffDays + this.config.daysLabel;
-
+		var days = '';
+		
+		if(this.config.showDays == true) days =diffDays + this.config.daysLabel;
 		if(this.config.showHours == true) hrs = diffHours + this.config.hoursLabel;
 		if(this.config.showMinutes == true) mins = diffMinutes + this.config.minutesLabel;
 		if(this.config.showSeconds == true) secs = diffSeconds + this.config.secondsLabel;
